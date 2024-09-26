@@ -1,0 +1,16 @@
+
+model TicketTier {
+  id                   Int     @id @default(autoincrement())
+  // I assume it won't be new entity, so this will be an addition
+  buyerPrice           Float
+  promoterReceivesPrice Float
+  serviceFee           Float
+}
+
+model FeeSettings {
+  id           Int    @id @default(autoincrement())
+  serviceFeeRate Float
+  minimumFee    Float
+  createdAt     timestamp
+  // in future there might be something like a `promoter` relation, if we want to have different fees for our clients, or some kind of disscuunts
+}
